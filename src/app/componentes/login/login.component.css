@@ -46,6 +46,10 @@ button:hover {
 img.avatar {
     width: 40%;
     border-radius: 50%;
+    background-color: white;
+    border: none!important;
+    border-color: white;
+
 }
 
 .container {
