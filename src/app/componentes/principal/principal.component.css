@@ -15,7 +15,6 @@ margin: 1rem;
     flex-wrap: wrap; /* hace que se pongan de bajo si no entra*/
     justify-content: space-evenly; /* para que tengan espacio entre ellas*/
     align-content: center;
-    border-radius: 1rem;
 }
 .menu{
   display: flex;
@@ -59,6 +58,10 @@ margin: 1rem;
 {
     .menu{
       height: auto;
+      border-radius: 0%;
+    }
+    .encabezado{
+      border-radius: 0%;
     }
 
 }
