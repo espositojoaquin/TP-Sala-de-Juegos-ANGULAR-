@@ -1,35 +1,91 @@
-.panel
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+header{
+
+  background-image: url("http://cdn.clubaindependiente.com/fondos/estadio.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+ /* max-height: 600px;*/
+ height: 20rem;
+ margin-bottom: 2rem;
+
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.menu{
+  margin: 2rem 0rem;
+  text-align: right;
+}
+ a{
+  margin:0rem 2rem;
+  color: white;
+  display: inline-block;
+  text-decoration:none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 9px;
+  font-size: 1em;
+}
+ a:hover{
+  border-bottom: 2px solid  rgba(1, 184, 240, 0.87);
+
+}
+header .contenedor_texto{
+  display: flex;
+  margin: 3rem 0px;
+  justify-content: center;
+  align-content: center;
+
+}
+header .contenedor_texto .texto{
+
+  border: 2px solid rgba(255,255,255,0.5);
+  padding: 1rem;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+}
+ h1, h2{
+  color: white;
+  font-weight: 300;
+  margin: 0px;
+}
+
+.juego{
+  margin-bottom: 10px;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.quien{
+
+  font-size: 25px;
+  line-height: 25px;
+}
+
+/* Responsive*/
+@media screen and (max-width: 800px)
 {
-    height: 200px;
-    background-image: url("/TP_LAV4_2017/assets/imagenes/cabecera.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    header .menu{
+        text-align: center;
+    }
+
+}
+@media screen and (max-width: 500px)
+{
+    .juego{
+        font-size: 35px;
+    }
+    .quien{
+        font-size: 18px;
+    }
 }
 
 
-.hero-text {
-text-align: center;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: #3E06B0;
-}
-
-.hero-text a {
-border: none;
-outline: 0;
-display: inline-block;
-padding: 10px 25px;
-color: black;
-background-color: #ddd;
-text-align: center;
-cursor: pointer;
-}
-
-.hero-text a:hover {
-background-color: #555;
-color: white;
-}
