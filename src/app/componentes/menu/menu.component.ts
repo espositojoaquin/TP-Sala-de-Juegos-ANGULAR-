@@ -30,5 +30,8 @@ export class MenuComponent implements OnInit {
         break;
     }
   }
+  logOut() {
+   // this.Afauth.logout();
+  }
 
 }

@@ -1,0 +1,20 @@
+h1{
+  font-weight: 700 solid bold;
+  font-size: 4rem;
+  font-style: italic;
+  color: white;
+  background-color: rgb(67, 141, 252);
+  font-weight: 900;
+  margin-bottom: 10rem;
+  -webkit-box-shadow: -4px 6px 23px -1px rgba(36,35,36,1);
+  -moz-box-shadow: -4px 6px 23px -1px rgba(36,35,36,1);
+  box-shadow: -4px 6px 23px -1px rgba(36,35,36,1);
+
+}
+@media screen and (max-width: 520px)
+ {
+     h1{
+         margin-bottom: 5rem;
+     }
+
+ }

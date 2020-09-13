@@ -3,9 +3,9 @@
     <button (click)="Juego('Adivina')">Adivina</button>
     <button (click)="Juego('Agilidad')">Agilidad</button>
     <button (click)="Juego('AdivinaMasListado')">Adivina+listado</button>
-    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>  
+    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>
     <button routerLink="/error">Error</button>
-  
+
 </div-->
 
 <!--nav class="navbar navbar-inverse">
@@ -26,12 +26,12 @@
         </ul>
     </div>
   </nav-->
-  <nav class="navbar navbar-inverse">
+  <!-- <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
-                                  
+
           </button>
           <a class="navbar-brand" routerLink="/Principal">Inicio</a>
         </div>
@@ -49,6 +49,55 @@
                 </ul>
         </div>
       </div>
-    </nav>
-      
-   
+    </nav> -->
+    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" routerLink="/Principal"><i class="fa fa-home"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/Juegos">Menú</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Juegos
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/Juegos/Agilidad">Agilidad</a>
+                      <a class="dropdown-item" routerLink="/Juegos/Adivina">Adivina</a>
+                      <a class="dropdown-item" routerLink="/Juegos/PiedraPapelTijera">Piedra Papel o Tijera</a>
+                      <a class="dropdown-item" routerLink="/Juegos/Simon">Simón dice</a>
+                      <a class="dropdown-item" routerLink="/Juegos/Anagrama">Anagrama</a>
+                      <a class="dropdown-item" routerLink="/Juegos/Tateti">TaTeTi</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Agilidad + listado</a>
+                      <a class="dropdown-item" href="#">Adivina + listado</a>
+                  </div>
+              </li>
+              <li class="nav-item iconos-collapse">
+                  <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" title="Desconectarse"
+                      (click)="logOut()">
+                      <i class="fa fa-sign-out"></i>
+                  </a>
+              </li>
+              <li class="nav-item iconos-collapse">
+                  <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+                      <i class="fa fa-cog"></i>
+                  </a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+              <button class="btn btn-dark my-2 my-sm-0" title="Desconectarse" (click)="logOut()">
+                  <i class="fa fa-sign-out"></i>
+              </button>
+          </form>
+      </div>
+  </nav>
+
+
+

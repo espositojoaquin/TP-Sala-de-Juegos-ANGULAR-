@@ -1,4 +1,4 @@
-<div class="container" >
+<!-- <div class="container" >
     <div class="card">
       <img class="img-thumbnail"   src="./assets/imagenes/aritmetica.jpeg" alt="Avatar" style="width:100%">
       <h1>Velocidad y agilidad aritmética </h1>
@@ -37,4 +37,80 @@
       <a href="#"><i class="fa fa-facebook"></i></a>
       <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
     </div>
-  </div>
+  </div> -->
+
+
+    <div class="container">
+
+      <div (click)="Juego('Agilidad')"  class="menu" id="menu">
+
+        <img class="img-thumbnail imagenDeMenu"   src="./assets/imagenes/aritmetica.jpeg" alt="Avatar" style="width:100%">
+
+
+         <div class="media-body">
+          <h4 class="media-heading">Velocidad y agilidad aritmética </h4>
+          <p>Juego de agilidad mental.<p>
+        </div>
+
+      </div>
+
+      <div (click)="Juego('PPT')" class="menu" id="menu">
+
+          <img src="./assets/imagenes/PPT.jpeg" class="img-thumbnail imagenDeMenu" alt="Avatar" style="width:100%" >
+
+
+        <div class="media-body">
+          <h4 class="media-heading">Listados de resultados</h4>
+          <p>Los listados de los resultados con ordenamiento y busqueda.</p>
+        </div>
+      </div>
+      <div (click)="Juego('Adivina')" class="menu" id="menu">
+
+        <img src="./assets/imagenes/adivinaNum.png" class="img-thumbnail imagenDeMenu" alt="Avatar" style="width:100%;" >
+
+        <div class="media-body">
+          <h4 class="media-heading">Adivina el Número</h4>
+          <p>Juego de estrategia.</p>
+    </div>
+
+      </div>
+      <div (click)="Juego('Anagrama')"  class="menu" id="menu">
+              <img src="./assets/imagenes/anagrama.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" style="width:100%;" >
+
+            <div class="media-body">
+              <h4 class="media-heading">Anagrama</h4>
+              <p>Juego de transposición de letras para formar otras palabras.</p>
+            </div>
+      </div>
+      <div (click)="Juego('Tateti')"  class="menu" id="menu">
+        <img src="./assets/imagenes/tateti.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" style="width:100%;" >
+
+      <div class="media-body">
+        <h4 class="media-heading">Tateti</h4>
+        <p>Juego de formar ceros o cruces de a tres en raya.</p>
+      </div>
+     </div>
+
+     <div (click)="Juego('Simon')"  class="menu" id="menu">
+      <img src="./assets/imagenes/simon.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" style="width:100%;" >
+
+        <div class="media-body">
+          <h4 class="media-heading">Simón Dice</h4>
+          <p>Juego de memoria.</p>
+        </div>
+   </div>
+
+
+</div>
+<footer>
+
+  <section class="redes_sociales">
+   <div class="contenedor">
+       <a href="https://www.facebook.com/joako.esposito" class="facebook"><i class="fa fa-facebook"></i></a>
+       <a href="https://github.com/espositojoaquin" class="github"><i class="fa fa-github"></i></a>
+       <a href="https://www.linkedin.com/in/joaqu%C3%ADn-esp%C3%B3sito-04209b194/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+   </div>
+  </section>
+</footer>
+
+

@@ -1,3 +1,10 @@
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
 .imagenDeMenu{
 width: 80px;
 height: 70px;
@@ -5,7 +12,13 @@ border-radius: 100%;
 margin: 1rem;
 }
 body{
-  background-color: white
+  background-color: white;
+  font-family: "Open Sans";
+  color: black;
+  font-size: 16px;
+  margin: 0px;
+  height: max-content;
+  padding: 0%;
 }
 .container{
 
@@ -62,20 +75,20 @@ box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
     }
 
     /*footer*/
-    footer{
+   /* footer{
       background-color:  #1e2b28;
       color: white;
-    }
+    }*/
     footer .redes_sociales{
       background: #1e2b28;
       padding: 60px 0;
       margin-top: 3rem;
-  }
-  footer .redes_sociales .contenedor{
+    }
+    footer .redes_sociales .contenedor{
       display: flex;
       justify-content: center;
-  }
-  footer .redes_sociales a{
+    }
+    footer .redes_sociales a{
       color: white;
       text-align: center;
       width: 100px;
@@ -84,7 +97,7 @@ box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
       border-radius: 10%;
       font-size: 50px;
       margin: 0px 20px;
-  }
+    }
   footer .redes_sociales .facebook:hover{background:#0078d7 ;}
   footer .redes_sociales .github:hover{background: #4078c0;}
   footer .redes_sociales .linkedin:hover{background: #0077b5;}
@@ -94,18 +107,43 @@ box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
 {
     .menu{
       height: auto;
-      border-radius: 0%;
     }
     .encabezado{
-      border-radius: 0%;
+      margin-bottom: 1rem;
     }
 
 }
-@media screen and (max-width: 500px)
+@media screen and (max-width: 520px)
 {
     .container{
       height: auto;
     }
+    .imagenDeMenu{
+       height: auto;
+       margin-bottom: 2rem;
+       }
+
+     .menu{
+     display: flex;
+     flex-direction:column; /* filas*/
+     flex-wrap: wrap; /* hace que se pongan de bajo si no entra*/
+     justify-content: space-between; /* para que tengan espacio entre ellas*/
+     background-color: white;
+     width: 80%;
+     height: auto;
+     border-radius: 1rem;
+     margin-bottom: 1rem;
+     align-content: center;
+     text-align: center;
+     cursor: pointer;
+     word-wrap: break-word;
+     padding: 1rem;
+     /*Sombra*/
+     -webkit-box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
+     -moz-box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
+     box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
+
+     }
 
 }
 
