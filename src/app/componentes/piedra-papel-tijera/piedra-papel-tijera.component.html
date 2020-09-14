@@ -3,13 +3,17 @@
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
       <div class="label-jugadores row">
-          <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
+          <!-- <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label> -->
+          <label class="col-6"><b> Jugador: {{contadorGanadas}}</b></label>
           <label class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
       </div>
       <div class="row">
-          <div class="col-6">
+        <div class="col-6">
+          <div *ngIf="!enJuego" >
               <img class="imagen-jugada" src={{imagenJugadaUsario}} alt="">
           </div>
+
+        </div>
           <div class="col-6">
               <img class="imagen-jugada" src={{imagenJugada}} alt="">
           </div>
@@ -22,28 +26,27 @@
                       </i> Elija su jugada</p>
               </label>
           </div>
-          <div class="row">
-              <div class="col-4">
-                  <img (click)="detener(1)" class="imagen-elegir-jugada" src="../../../assets/imagenes/piedra.png"
-                      alt="piedra">
-              </div>
-              <div class="col-4">
-                  <img (click)="detener(2)" class="imagen-elegir-jugada" src="../../../assets/imagenes/papel.png"
-                      alt="papel">
-              </div>
-              <div class="col-4">
-                  <img (click)="detener(3)" class="imagen-elegir-jugada" src="../../../assets/imagenes/tijera.png"
-                      alt="tijera">
-              </div>
+        </div>
+        <div class="row botones"  *ngIf="!enJuego">
+          <button (click)="nuevo()"   class="btn btn-primary btn-lg nuevoBoton" type="button" id="button-nuevo">
+            Nuevo juego</button>
+              <button *ngIf="save" class="btn btn-success nuevoBoton" type="button" id="button-verificar" (click)="guardar()">Guardar
+                partida</button>
+
           </div>
-      </div>
-      <div class="row" *ngIf="!enJuego">
-          <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">
-                  Nuevo juego</button></p>
-      </div>
-      <div *ngIf="save">
-          <button class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
-              partida</button>
-      </div>
-  </div>
+          </div>
+             <div class="row" style="justify-content: space-between;" *ngIf="enJuego">
+                <div class="col-4">
+                    <img (click)="detener(1)" class="imagen-elegir-jugada" src="../../../assets/imagenes/piedra.png"
+                     alt="piedra">
+               </div>
+               <div class="col-4">
+               <img (click)="detener(2)" class="imagen-elegir-jugada" src="../../../assets/imagenes/papel.png"
+                 alt="papel">
+               </div>
+              <div class="col-4">
+              <img (click)="detener(3)" class="imagen-elegir-jugada" src="../../../assets/imagenes/tijera.png"
+                 alt="tijera">
+              </div>
+              </div>
 </div>

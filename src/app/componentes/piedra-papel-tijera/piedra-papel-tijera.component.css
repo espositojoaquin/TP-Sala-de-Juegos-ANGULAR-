@@ -1,6 +1,6 @@
 .imagen-jugada{
   width: 40%;
-  border: .3em #1eb1b382 solid;
+  border: .3em rgb(185, 6, 15) solid;
   border-radius: 10px;
   margin: .5em 0 .5em 0;
 }
@@ -13,15 +13,50 @@
   margin: 0;
   padding: 0;
 }
+h1{
+  background-color: rgb(67, 141, 252);
+  border-radius: 1rem;
+  color: white;
+  font-family: serif;
+  font-weight: lighter;
+  align-content: center;
 
+}
+.botones{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .imagen-elegir-jugada{
   width: 50%;
   border: .3em #dc3545 solid;
-  border-radius: 10px;
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+img:hover{
+  -webkit-box-shadow: 10px 7px 27px -3px rgba(201,8,18,1);
+-moz-box-shadow: 10px 7px 27px -3px rgba(201,8,18,1);
+box-shadow: 10px 7px 27px -3px rgba(201,8,18,1);
 }
 
 .jumbotron {
   padding: 1rem 2rem 1rem 2rem;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 3rem;
+  -webkit-box-shadow: 10px 10px 19px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 19px -3px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 19px -3px rgba(0,0,0,0.75);
+
+}
+.nuevoBoton{
+  margin: 5rem;
+
+
 }
 
 .label-jugadores{

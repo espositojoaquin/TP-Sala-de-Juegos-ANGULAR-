@@ -65,14 +65,14 @@ export class PiedraPapelTijeraComponent implements OnInit {
   mostrarMensaje() {
     switch (this.nuevoJuego.resultado) {
       case -1:
-        this.toastr.error("Fallaste esta vez", ":( :( :(");
+        this.toastr.error("Me dijeron que eras bueno, pero se esquivocaron...,Perdiste");
         this.contadorPerdidas++;
         break;
       case 0:
-        this.toastr.warning("Intentalo de nuevo", "Es un empate");
+        this.toastr.warning("Dejá de copiarme...,Empate");
         break;
       case 1:
-        this.toastr.success("Ganaste un porrón", "¡Felicitaciones!");
+        this.toastr.success("Ja, Tuviste suerte esta vez...,Ganaste");
         this.contadorGanadas++;
         break;
     }
