@@ -31,6 +31,7 @@ export class MenuComponent implements OnInit {
     }
   }
   logOut() {
+    this.router.navigate(['/Juegos'])
    // this.Afauth.logout();
   }
 
