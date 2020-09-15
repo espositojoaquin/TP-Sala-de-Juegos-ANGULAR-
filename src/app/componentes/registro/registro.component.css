@@ -1,11 +1,11 @@
-input[type=text], input[type=password] {
+/*input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}*/
 
 /* Set a style for all buttons */
 .jumbotron
@@ -25,6 +25,10 @@ input[type=text], input[type=password] {
 /* Add padding to container elements */
 .container {
     padding: 16px;
+}
+input{
+  border-radius: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* The Modal (background) */
@@ -47,6 +51,7 @@ input[type=text], input[type=password] {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
+    border-radius: 2rem;
     width: 98%; /* Could be more or less, depending on screen size */
 }
 
@@ -58,6 +63,7 @@ input[type=text], input[type=password] {
     color: #000;
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 3rem;
 }
 
 .close:hover,
@@ -72,6 +78,7 @@ input[type=text], input[type=password] {
     clear: both;
     display: table;
 }
+
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
