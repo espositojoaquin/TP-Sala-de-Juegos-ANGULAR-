@@ -1,0 +1,9 @@
+
+<div class="jumbotron">
+  <div class="row" style="flex-wrap: wrap;flex-direction: row;display: flex; width: auto;" >
+    <!-- <div  class="col-lg-12"> -->
+      <app-tarjeta (click)="validate()" *ngFor="let tarjeta of tarjetasSeleccionadas" role="button" [infoTarjeta]="tarjeta" [@tarjetasAnimation]="tarjeta"></app-tarjeta>
+    <div  class="row-lg-12">
+    </div>
+  </div>
+</div>

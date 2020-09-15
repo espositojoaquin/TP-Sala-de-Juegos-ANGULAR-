@@ -1,0 +1,3 @@
+<div class="tarjeta" [class.flipped]="_infoTarjeta.visible" (click)="mostrarTarjeta(_infoTarjeta)">
+  <i id="ficha" class="fa fa-4x" [class.front]="_infoTarjeta.visible" [class.back]="!_infoTarjeta.visible" aria-hidden="true" [hidden]="!_infoTarjeta.visible" [ngClass]="_infoTarjeta.nombre"></i>
+</div>

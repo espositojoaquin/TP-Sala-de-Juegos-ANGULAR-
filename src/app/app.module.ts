@@ -15,7 +15,8 @@ import { HttpModule } from '@angular/http';
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
 import { RouterModule, Routes } from '@angular/router';
-
+import { TableroService } from "./servicios/tablero.service";
+import { TarjetaService } from "./servicios/tarjeta.service";
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service';
 
@@ -60,6 +61,10 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemoTestComponent } from './componentes/memo-test/memo-test.component';
+import { TableroComponent } from "./componentes/tablero/tablero.component";
+import { TarjetaComponent } from "./componentes/tarjeta/tarjeta.component";
+import { CronometroComponent } from "./componentes/cronometro/cronometro.component";
 
 
 
@@ -90,7 +95,11 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     InputJugadoresComponent,
     SexoPipe,
     PiedraPapelTijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    MemoTestComponent,
+    TableroComponent,
+    TarjetaComponent,
+    CronometroComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +117,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,TarjetaService,TableroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
