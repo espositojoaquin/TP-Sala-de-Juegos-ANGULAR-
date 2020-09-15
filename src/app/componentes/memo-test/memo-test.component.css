@@ -46,3 +46,11 @@ h3{
   justify-content: center;
   margin: 3rem;
 }
+
+@media screen and (max-width: 600px)
+{
+   .container{
+     width: auto;
+     height: auto;
+   }
+}
