@@ -1,17 +1,32 @@
 
+.jumbotron{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  width: auto;
+  height: auto;
+}
 form {
-    border: 10px solid #f1f1f1;
+    /*border: 10px solid #f1f1f1;*/
+    width: auto;
     padding: 10px;
-    background:gray;
+    background:white;
+    border-radius: 2rem;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
+    -moz-box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
+    box-shadow: 7px 7px 20px -8px rgba(0,3,5,1);
 }
 
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input[type=email], input[type=password] {
+    margin-bottom: 2rem;
 }
 
 button {
@@ -21,7 +36,11 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    border-radius: 1rem;
+    width: 70%;
+    margin-bottom: 2rem;
+    margin-right: 1.5rem;
+
 }
 
 button:hover {
@@ -53,7 +72,11 @@ img.avatar {
 }
 
 .container {
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 
 span.psw {
@@ -62,12 +85,13 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 900px) {
     span.psw {
        display: block;
        float: none;
     }
-    .cancelbtn {
-       width: 100%;
+    form{
+      width: auto;
     }
+
 }

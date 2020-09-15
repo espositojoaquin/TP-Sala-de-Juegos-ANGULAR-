@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -101,7 +103,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    // NgbModule.forRoot(MiRuteo),
+    MatInputModule,
+    MatButtonModule,
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
