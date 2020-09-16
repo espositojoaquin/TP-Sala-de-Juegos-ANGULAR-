@@ -33,7 +33,7 @@ export class TarjetaService {
             setTimeout(function(){
                 tarjeta1.visible = false;
                 tarjeta2.visible = false;
-            }, 1000);
+            }, 500);
         }
     }
 
