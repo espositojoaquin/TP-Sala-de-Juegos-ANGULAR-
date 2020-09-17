@@ -80,7 +80,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { environment  } from "../environments/environment";
+import { firebaseConfig } from "../environments/environment";
 
 
 
@@ -130,7 +130,7 @@ import { environment  } from "../environments/environment";
     ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
