@@ -41,7 +41,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/Principal']);
       })
       .catch(error => {
+        this.logeando =true;
         this.toast.error("Los datos son incorrectos o no existe el usuario");
+        this.progreso=0;
+        this.ProgresoDeAncho="0%";
       })
   }
   MoverBarraDeProgreso() {

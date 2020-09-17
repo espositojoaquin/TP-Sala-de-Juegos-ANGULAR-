@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {AuthService  } from "../../servicios/auth.service";
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private auth:AuthService) { }
 
   ngOnInit() {
   }
@@ -31,8 +32,10 @@ export class MenuComponent implements OnInit {
     }
   }
   logOut() {
-    this.router.navigate(['/Juegos'])
-   // this.Afauth.logout();
+    //this.router.navigate(['/Juegos'])
+    this.auth.logout();
+
+
   }
 
 }

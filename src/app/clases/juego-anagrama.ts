@@ -18,7 +18,7 @@ export class JuegoAnagrama extends Juego {
         "CONQUISTADORES": { anagramas: ["RECONQUISTADOS"] },
         "BRASIL": { anagramas: ["SILBAR", "LIBRAS"] },
         "GRANADA": { anagramas: ["AGRADAN", "AGRANDA"] },
-        "CRETA": { anagramas: ["CATRE", "TERCA"] },
+        "CRETA": { anagramas: ["CATRE", "TERCA","RECTA"] },
     };
     palabraSeleccionada: string = "";
     palabraIngresada: string = "";

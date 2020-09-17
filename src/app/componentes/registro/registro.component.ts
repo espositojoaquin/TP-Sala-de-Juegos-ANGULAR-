@@ -27,13 +27,28 @@ export class RegistroComponent implements OnInit {
 
   registro()
   {
-    this.authService.register(this.user,this.cuil ,this.sexo,this.email, this.clave)
-    .then(auth => {
-      this.router.navigate(['/Principal']);
-    })
-    .catch(err => {
-      this.toastr.error(err, "ERROR");
-    })
+    if(this.user!= null && this.cuil!=null && this.sexo!=null && this.email!=null && this.clave!=null && this.clave2!=null)
+    {
+      if(this.clave == this.clave2)
+      {
+         this.authService.register(this.user,this.cuil ,this.sexo,this.email, this.clave)
+         .then(auth => {
+           this.router.navigate(['/Principal']);
+         })
+         .catch(err => {
+           this.toastr.error(err, "ERROR");
+         })
+      }
+      else
+      {
+       this.toastr.error("Las claves no coinciden", "ERROR");
+
+      }
+    }
+    else
+    {
+      this.toastr.error("Datos incompletos o inválidos", "ERROR");
+    }
   }
 
 
