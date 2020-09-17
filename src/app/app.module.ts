@@ -17,8 +17,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { TableroService } from "./servicios/tablero.service";
 import { TarjetaService } from "./servicios/tarjeta.service";
+import { AuthService } from "./servicios/auth.service";
+import { DataService } from "./servicios/data.service";
+
+
+
+
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service';
+
 
 import { JugadoresService } from './servicios/jugadores.service';
 import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service';
@@ -65,6 +72,15 @@ import { MemoTestComponent } from './componentes/memo-test/memo-test.component';
 import { TableroComponent } from "./componentes/tablero/tablero.component";
 import { TarjetaComponent } from "./componentes/tarjeta/tarjeta.component";
 import { CronometroComponent } from "./componentes/cronometro/cronometro.component";
+
+//import Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { environment  } from "../environments/environment";
 
 
 
@@ -114,10 +130,15 @@ import { CronometroComponent } from "./componentes/cronometro/cronometro.compone
     ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,TarjetaService,TableroService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,TarjetaService,TableroService,AuthService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
