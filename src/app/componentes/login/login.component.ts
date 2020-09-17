@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { ToastrService } from 'ngx-toastr';
+import { AuthService  } from "../../servicios/auth.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  usuario = '';
+  email = '';
   clave= '';
   progreso: number;
   progresoMensaje="esperando...";
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private auth:AuthService,
     private toast:ToastrService) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
@@ -34,15 +36,13 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
-    else
-    {
-
-       this.toast.error("Usuario invalido o inexistente","Error de logueo");
-       this.logeando=true;
-    }
+    this.auth.login(this.email, this.clave)
+      .then(res => {
+        this.router.navigate(['/Principal']);
+      })
+      .catch(error => {
+        this.toast.error("Los datos son incorrectos o no existe el usuario");
+      })
   }
   MoverBarraDeProgreso() {
 
