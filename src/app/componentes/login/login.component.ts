@@ -35,6 +35,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  invitado(){
+    
+    this.email = "invitado@gmail.com";
+    this.clave = "invitado83";
+  }
+
   Entrar() {
     this.auth.login(this.email, this.clave)
       .then(res => {
