@@ -25,6 +25,7 @@ import { AnagramaComponent } from "../componentes/anagrama/anagrama.component";
 import { PiedraPapelTijeraComponent } from "../componentes/piedra-papel-tijera/piedra-papel-tijera.component";
 import { TatetiComponent } from "../componentes/tateti/tateti.component";
 import { MemoTestComponent } from "../componentes/memo-test/memo-test.component";
+import { SimonComponent } from "../componentes/simon/simon.component";
 
 
 // declaro donde quiero que se dirija
@@ -45,6 +46,7 @@ children:
 [{path: '' , component: MenuCardComponent},
        {path: 'Anagrama' , component: AnagramaComponent},
        {path: 'MemoTest' , component: MemoTestComponent},
+       {path: 'Simon' , component: SimonComponent},       
        {path: 'Tateti' , component: TatetiComponent},
        {path: 'PPT' , component: PiedraPapelTijeraComponent},
        {path: 'Adivina' , component: AdivinaElNumeroComponent},

@@ -72,6 +72,7 @@ import { MemoTestComponent } from './componentes/memo-test/memo-test.component';
 import { TableroComponent } from "./componentes/tablero/tablero.component";
 import { TarjetaComponent } from "./componentes/tarjeta/tarjeta.component";
 import { CronometroComponent } from "./componentes/cronometro/cronometro.component";
+import { SimonComponent } from './componentes/simon/simon.component';
 
 //import Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -115,7 +116,8 @@ import { firebaseConfig } from "../environments/environment";
     MemoTestComponent,
     TableroComponent,
     TarjetaComponent,
-    CronometroComponent
+    CronometroComponent,
+    SimonComponent
   ],
   imports: [
     BrowserModule,

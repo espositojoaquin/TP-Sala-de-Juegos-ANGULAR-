@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
+        <br>
+        <!-- <div class="en-juego" *ngIf="enJuego"> -->
+        <div class="en-juego">
+            <div *ngIf="contador!=0">Aciertos: {{contador}}</div>
+            <div class="container tablero">
+                <div class="row" style="display: flex; flex-direction: row; justify-content: center;">
+                    <div class="div-boton-juego ">
+                        <button (click)="botonApretado(1)" id="btn-verde"
+                            class="btn btn-success btn-md botones-juego bt"></button>
+                    </div>
+                    <div class="div-boton-juego">
+                        <button (click)="botonApretado(2)" id="btn-rojo"
+                            class="btn btn-danger btn-md botones-juego"></button>
+                    </div>
+                </div>
+                <div class="row" style="display: flex; flex-direction: row; justify-content: center;">
+                   
+                    <div class="div-boton-juego">
+                        <button (click)="botonApretado(3)" id="btn-amarillo"
+                            class="btn btn-warning btn-md botones-juego"></button>
+                    </div>
+                    <div class="div-boton-juego">
+                        <button (click)="botonApretado(4)" id="btn-azul"
+                            class="btn btn-primary btn-md botones-juego"></button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="registrarSecuencia" class="label-jugadores row">
+                <label class="col-12">
+                    <p>Repita la secuencia..</p>
+                    <!-- <p><i class="fa fa-spinner fa-spin">
+                        </i> Tiempo: <b>{{contador}}</b></p> -->
+                </label>
+            </div>
+        </div>
+        <div class="row" *ngIf="!enJuego">
+            <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">
+                    Nuevo juego</button></p>
+        </div>
+        <div *ngIf="save">
+            <button class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+                partida</button>
+        </div>
+    </div>
+</div>
