@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,29 @@ export class AuthService {
     private db: AngularFirestore) {
   }
 
+  getUserUid()
+  {  
+      return new Promise((resolve, reject) => {
+        this.AFauth.onAuthStateChanged(function(user){
+            if(user)
+            {
+              resolve(user.uid)
+            }
+            else
+            {
+              resolve("0")
+            }
+        })
+        
+      })
+
+
+  }
+    
+  
+
   getCurrentUser() {
-    let user = this.AFauth.currentUser;
+     let user = this.AFauth.currentUser;
     return user;
   }
 

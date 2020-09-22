@@ -5,6 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../servicios/auth.service';
 import { DataService } from '../../servicios/data.service';
 import { AngularFireAuth } from '@angular/fire/auth'
+import { stringify } from 'querystring';
+import { AsyncSubject } from 'rxjs';
+import { AsyncAction } from 'rxjs/internal/scheduler/AsyncAction';
+
 
 @Component({
   selector: 'app-simon',
@@ -19,6 +23,7 @@ export class SimonComponent implements OnInit {
   contador: number = 0;
   user: any;
   save: boolean = false;
+  
 
   btnVerde: any = document.getElementById("btn-verde");
   btnRojo: any = document.getElementById("btn-rojo");
@@ -190,7 +195,11 @@ export class SimonComponent implements OnInit {
   }
 
   guardar(){
-    this.user.puntajes['simon'] += this.contador;
+    
+    this.user.puntajes[4]['simonG'] += 1;
+    
+    console.info(this.user);
+    console.info(this.user.puntajes[4]['simonG']);
     this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
       .then(() => {
         this.toastr.success("Puntos guardados")
@@ -198,14 +207,22 @@ export class SimonComponent implements OnInit {
       .catch(err => {
         this.toastr.error("Al guardar: " + err.message, "Error");
       })
+      this.save=false;
   }
 
   getCurrentUser() {
-    let user = this.authService.getCurrentUser();
-    /*this.dataService.getUserByUid(user.uid)
-      .subscribe(res => {
-        this.user = res;
-      })*/
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
   }
 
   ngOnInit() {

@@ -21,7 +21,7 @@ export class DataService {
     return this.dbUsersRef.valueChanges();
   }
 
-  getUserByUid(uid: string) {
+   getUserByUid(uid: string) {
     return this.dbUsersRef.doc(uid).valueChanges();
   }
 
