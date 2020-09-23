@@ -2,8 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina';
 import { ToastrService } from 'ngx-toastr';
-/*import { AuthService } from 'src/app/servicios/auth.service';
-import { DataService } from 'src/app/servicios/data.service';*/
+import { AuthService } from '../../servicios/auth.service';
+import { DataService } from '../../servicios/data.service';
+
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -17,11 +18,12 @@ export class AdivinaElNumeroComponent implements OnInit {
   contador: number;
   ocultarVerificar: boolean;
   user: any;
+  desGuar:boolean = false;
 
   constructor(
     private toastr: ToastrService,
-   /* private authService: AuthService,
-    private dataService: DataService*/) {
+    private authService: AuthService,
+    private dataService: DataService) {
     this.nuevoJuego = new JuegoAdivina();
     this.ocultarVerificar = false;
   }
@@ -36,6 +38,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   generarNumeroUsr() {
     this.nuevoJuego.generarNumero();
     this.contador = 0;
+    this.desGuar = false;
     this.setInputNumeroIngresado();
   }
 
@@ -48,32 +51,42 @@ export class AdivinaElNumeroComponent implements OnInit {
       this.nuevoJuego.numeroSecreto = 0;
     }
     else {
-      let mensaje: string;
-      switch (this.contador) {
-        case 1:
-          mensaje = "Primer intento fallido, vamos de nuevo";
-          break;
-        case 2:
-          mensaje = "No, te estarás Acercando???";
-          break;
-        case 3:
-          mensaje = "No es, yo creí que la tercera era la vencida";
-          break;
-        case 4:
-          mensaje = "No era el " + this.nuevoJuego.numeroIngresado;
-          break;
-        case 5:
-          mensaje = "5 intentos y nada";
-          break;
-        case 6:
-          mensaje = "Afortunado en el amor";
-          break;
+      if(this.contador<6)
+      {
+        let mensaje: string;
+        switch (this.contador) {
+          case 1:
+            mensaje = "Primer intento fallido, vamos de nuevo";
+            break;
+          case 2:
+            mensaje = "No, te estarás Acercando???";
+            break;
+          case 3:
+            mensaje = "No es, yo creí que la tercera era la vencida";
+            break;
+          case 4:
+            mensaje = "No era el " + this.nuevoJuego.numeroIngresado;
+            break;
+          case 5:
+            mensaje = "Te queda solo 1 intento";
+            break;
+          case 6:
+            mensaje = "Afortunado en el amor";
+            break;
+  
+          default:
+            mensaje = "Ya le erraste " + this.contador + " veces";
+            break;
+        }
+        this.mostrarMensaje("#" + this.contador + " " + mensaje + " - Ayuda: " + this.nuevoJuego.retornarAyuda());
 
-        default:
-          mensaje = "Ya le erraste " + this.contador + " veces";
-          break;
       }
-      this.mostrarMensaje("#" + this.contador + " " + mensaje + " - Ayuda: " + this.nuevoJuego.retornarAyuda());
+      else
+      {
+         this.toastr.error("Mejor suerte la próxima...");
+         this.nuevoJuego.gano=true;
+         this.nuevoJuego.numeroSecreto =0;
+      }
     }
     console.info("resultado: ", this.nuevoJuego.gano);
   }
@@ -91,22 +104,41 @@ export class AdivinaElNumeroComponent implements OnInit {
   }
 
   guardar(){
-    this.user.puntajes['adivina'] += 1;
-   /* this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
+    if(this.contador<6)
+    {
+      this.user.puntajes[0]['adivinaG'] += 1;
+
+    }
+    else
+    {
+      this.user.puntajes[7]['adivinaP'] += 1;
+       
+    }
+    console.info(this.user.puntajes);
+    this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
       .then(() => {
-        this.toastr.success("Puntos guardados")
+        this.toastr.success("Puntos guardados");
+        this.desGuar=true;
       })
       .catch(err => {
         this.toastr.error("Al guardar: " + err.message, "Error");
-      })*/
+      })
+      
   }
 
   getCurrentUser() {
-   /* let user = this.authService.getCurrentUser();
-    this.dataService.getUserByUid(user.uid)
-      .subscribe(res => {
-        this.user = res;
-      })*/
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
   }
 
   ngOnInit() {
