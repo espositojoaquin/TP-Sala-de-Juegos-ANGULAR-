@@ -2,19 +2,19 @@
   <div class="jumbotron">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
-      <div style="height: 3rem;">
-        <div *ngIf="turnoJugador && !nuevoJuego.juegoTerminado" class="row">
-            <label class="col-12">
-                <p><i class="fa fa-spinner fa-spin">
-                    </i> Realice una jugada</p>
-            </label>
-        </div>
-      </div>
       <div class="label-jugadores row" >
-          <!-- <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label> -->
-          <label id="jugador" class="col-6"><b>Jugador: {{contadorGanadas}}</b></label>
-          <label id="oponente" class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
-      </div>
+          <label id="jugador" *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
+          <!-- <label id="jugador" class="col-6"><b>Jugador: {{contadorGanadas}}</b></label> -->
+          <label id="oponente" *ngIf="user" class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
+        </div>
+                          <div style="height: 3rem;">
+                            <div *ngIf="turnoJugador && !nuevoJuego.juegoTerminado" class="row">
+                                <label class="col-12">
+                                    <p><i class="fa fa-spinner fa-spin">
+                                        </i> Realice una jugada</p>
+                                </label>
+                            </div>
+                          </div>
       <div *ngIf="enJuego"  class="row tablero">
           <table class="table table-bordered col-sm-10 col-md-6 col-lg-6">
               <tbody>
@@ -62,7 +62,7 @@
                   Nuevo juego</button></p>
       </div>
       <div *ngIf="save">
-          <button class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+          <button [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
               partida</button>
       </div>
 

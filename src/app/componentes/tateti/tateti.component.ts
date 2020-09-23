@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoTateti } from '../../clases/juego-tateti';
 import { ToastrService } from 'ngx-toastr';
-/*import { AuthService } from 'src/app/servicios/auth.service';
-import { DataService } from 'src/app/servicios/data.service';*/
+import { AuthService } from '../../servicios/auth.service';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-tateti',
@@ -20,9 +20,11 @@ export class TatetiComponent implements OnInit {
   user: any;
   contadorGanadas: number = 0;
   contadorPerdidas: number = 0;
+  empate:boolean = false;
+  desGuar:boolean = false;
 
-  constructor(private toastr: ToastrService, /*private authService: AuthService,
-    private dataService: DataService*/) {
+  constructor(private toastr: ToastrService, private authService: AuthService,
+    private dataService: DataService) {
     this.nuevoJuego = new JuegoTateti();
   }
 
@@ -71,6 +73,7 @@ export class TatetiComponent implements OnInit {
 
                   this.toastr.success("Felicitaciones!", "Ganaste esta vez");
                     this.contadorGanadas++;
+                    this.nuevoJuego.gano = true;
                     setTimeout(() => {
                       this.enJuego = false;
 
@@ -88,6 +91,7 @@ export class TatetiComponent implements OnInit {
         setTimeout(() => {
           this.enJuego = false;
           this.nuevoJuego.juegoTerminado=true;
+          this.empate=true;
 
         }, 500);
 
@@ -95,6 +99,8 @@ export class TatetiComponent implements OnInit {
   }
 
   nuevo() {
+    this.empate = false;
+    this.desGuar = false;
     this.save = false;
     this.nuevoJuego.juegoTerminado = false;
     this.nuevoJuego.reset();
@@ -104,25 +110,57 @@ export class TatetiComponent implements OnInit {
   }
 
   guardar(){
-    var result = this.contadorGanadas - this.contadorPerdidas;
-    this.user.puntajes['tateti'] += result;
-   /* this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
+    if(this.nuevoJuego.gano)
+    {
+      this.user.puntajes[5]['tatetiG'] += 1;
+      console.log("llega gano");
+
+    }
+    else
+    { 
+      if(this.empate)
+      {
+        this.user.puntajes[14]['tatetiE'] += 1;
+        console.log("llega empate");
+        
+
+      }
+      else
+      {
+        this.user.puntajes[12]['tatetiP'] += 1;
+        console.log("llega perdio");
+        
+
+      }
+
+      
+    }
+
+     this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
       .then(() => {
-        this.toastr.success("Puntos guardados")
+        this.toastr.success("Puntos guardados");
+        this.desGuar=true;
       })
       .catch(err => {
         this.toastr.error("Al guardar: " + err.message, "Error");
-      })*/
+      })
+      
   }
 
   getCurrentUser() {
-   /* let user = this.authService.getCurrentUser();
-    this.dataService.getUserByUid(user.uid)
-      .subscribe(res => {
-        this.user = res;
-      })*/
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
   }
-
   ngOnInit() {
     this.getCurrentUser();
   }

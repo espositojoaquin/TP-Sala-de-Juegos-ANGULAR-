@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoPiedraPapelTijera } from '../../clases/juego-piedra-papel-tijera';
 import { ToastrService } from 'ngx-toastr';
-/*import { AuthService } from 'src/app/servicios/auth.service';
-import { DataService } from 'src/app/servicios/data.service';*/
+import { AuthService } from '../../servicios/auth.service';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -21,15 +21,17 @@ export class PiedraPapelTijeraComponent implements OnInit {
   contadorPerdidas: number = 0;
   user: any;
   save: boolean = false;
+  desGuar: boolean = false;
 
   constructor(
     private toastr: ToastrService,
-   /* private authService: AuthService,
-    private dataService: DataService*/) {
+    private authService: AuthService,
+    private dataService: DataService) {
     this.nuevoJuego = new JuegoPiedraPapelTijera();
   }
 
   nuevo() {
+    this.desGuar = false;
     this.save = false;
     this.stop = false;
     this.enJuego = true;
@@ -107,23 +109,57 @@ export class PiedraPapelTijeraComponent implements OnInit {
   }
 
   guardar(){
-    var result = this.contadorGanadas - this.contadorPerdidas;
-    this.user.puntajes['ppt'] += result;
-    /*this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
+    if(this.nuevoJuego.resultado == 1)
+    {
+      this.user.puntajes[3]['pptG'] += 1;
+      console.log("llega gano");
+
+    }
+    else
+    { 
+      if(this.nuevoJuego.resultado == 0)
+      {
+        this.user.puntajes[15]['pptE'] += 1;
+        console.log("llega empate");
+        
+
+      }
+      else
+      {
+        this.user.puntajes[10]['pptP'] += 1;
+        console.log("llega perdio");
+        
+
+      }
+
+      
+    }
+    
+      
+     this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
       .then(() => {
-        this.toastr.success("Puntos guardados")
+        this.toastr.success("Puntos guardados");
+        this.desGuar=true;
       })
       .catch(err => {
         this.toastr.error("Al guardar: " + err.message, "Error");
-      })*/
+      })
+      
   }
 
   getCurrentUser() {
-   /* let user = this.authService.getCurrentUser();
-    this.dataService.getUserByUid(user.uid)
-      .subscribe(res => {
-        this.user = res;
-      })*/
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
   }
 
   ngOnInit() {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { jsonpFactory } from '@angular/http/src/http_module';
+import { AuthService } from '../../servicios/auth.service';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-memo-test',

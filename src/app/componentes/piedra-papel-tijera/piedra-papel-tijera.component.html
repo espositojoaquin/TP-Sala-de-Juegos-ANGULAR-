@@ -3,9 +3,9 @@
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
       <div class="label-jugadores row">
-          <!-- <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label> -->
-          <label class="col-6"><b> Jugador: {{contadorGanadas}}</b></label>
-          <label class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
+          <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
+          <!-- <label class="col-6"><b> Jugador: {{contadorGanadas}}</b></label> -->
+          <label *ngIf="user" class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
       </div>
       <div class="row">
         <div class="col-6">
@@ -30,7 +30,7 @@
         <div class="row botones"  *ngIf="!enJuego">
           <button (click)="nuevo()"   class="btn btn-primary btn-lg nuevoBoton" type="button" id="button-nuevo">
             Nuevo juego</button>
-              <button *ngIf="save" class="btn btn-success nuevoBoton" type="button" id="button-verificar" (click)="guardar()">Guardar
+              <button *ngIf="save" [disabled]="desGuar" class="btn btn-success nuevoBoton" type="button" id="button-verificar" (click)="guardar()">Guardar
                 partida</button>
 
           </div>

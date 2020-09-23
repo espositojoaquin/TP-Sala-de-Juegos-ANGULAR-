@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad';
 import { ToastrService } from 'ngx-toastr';
-/*import { DataService } from 'src/app/servicios/data.service';
-import { AuthService } from 'src/app/servicios/auth.service';*/
+import { AuthService } from '../../servicios/auth.service';
+import { DataService } from '../../servicios/data.service';
+
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -16,9 +17,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
   tiempo: number;
   repetidor: any;
   user: any;
+  btnGuardar:Boolean = true;
+  desGuar:boolean = false;
 
-  constructor(private toastr: ToastrService, /*private authService: AuthService,
-    private dataService: DataService*/) {
+
+  constructor(private toastr: ToastrService, private authService: AuthService,
+    private dataService: DataService) {
     this.enJuego = false;
     this.tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
@@ -32,6 +36,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
 
   nuevo(): void {
+    this.desGuar= false;
+    this.btnGuardar=true;
     this.nuevoJuego.reset();
     this.setInputNumeroIngresado();
     this.enJuego = true;
@@ -53,6 +59,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.mostrarMensaje("Andá a la escuela", false);
     }
     this.enJuego = false;
+    this.btnGuardar = false;
   }
 
   mostrarMensaje(mensaje: string = "este es el msg", ganador: boolean = false) {
@@ -64,22 +71,41 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
 
   guardar(){
-    this.user.puntajes['agilidad'] += 1;
-   /* this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
+    if(this.nuevoJuego.gano)
+    {
+      this.user.puntajes[1]['agilidadG'] += 1;
+     
+    }
+    else
+    {
+      this.user.puntajes[8]['agilidadP'] += 1;
+     
+    }
+
+    this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
       .then(() => {
-        this.toastr.success("Puntos guardados")
+        this.toastr.success("Puntos guardados");
+        this.desGuar=true;
       })
       .catch(err => {
         this.toastr.error("Al guardar: " + err.message, "Error");
-      })*/
+      })
+      
   }
 
   getCurrentUser() {
-   /* let user = this.authService.getCurrentUser();
-    this.dataService.getUserByUid(user.uid)
-      .subscribe(res => {
-        this.user = res;
-      })*/
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
   }
 
   ngOnInit() {
