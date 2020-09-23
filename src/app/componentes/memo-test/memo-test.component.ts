@@ -11,13 +11,18 @@ import { DataService } from '../../servicios/data.service';
 })
 export class MemoTestComponent implements OnInit {
 
-  constructor(private toast:ToastrService) { }
-
 
   juegoIniciado:boolean;
   mostrarAlerta = false;
   tiempo:number;
   cantidad:number;
+  user:any;
+  ganar:boolean = false;
+  desGuar:boolean = false;
+  mostrarGur:boolean = false;
+  
+  constructor(private toast:ToastrService,private authService: AuthService,
+    private dataService: DataService) { }
   niveles = [
     {
       id: 0,
@@ -47,11 +52,12 @@ export class MemoTestComponent implements OnInit {
   nombre: string = null;
   nivelSeleccionado:any= null;
 
-  ngOnInit() {
+ /* ngOnInit() {
     this.juegoIniciado = false;
-  }
+  }*/
 
   iniciar() {
+
     switch(this.nivelSeleccionado)
     {
       case'Facil':
@@ -77,7 +83,7 @@ export class MemoTestComponent implements OnInit {
     this.juegoIniciado = true;
     this.mostrarAlerta = true;
     setTimeout(function() {
-      this.mostrarAlerta = false;
+      this.mostrarAlerta = true;
     }.bind(this), 2000);
   }
 
@@ -90,16 +96,67 @@ export class MemoTestComponent implements OnInit {
   {
     if(this.juegoIniciado==true)
     {
+      this.mostrarGur = true;
       this.toast.error("Espero que la proxima tengas mas suerte, Perdiste!!!");
+     
 
-    }
+    } 
     this.detener();
   }
   gano()
   {
+    this.ganar=true;
+    this.mostrarGur = true;
     this.toast.success("Wow eres todo un Genio,Ganaste");
-
     this.detener();
+  } 
+
+  guardar(){
+    if(this.ganar)
+    {
+      this.user.puntajes[6]['memotestG'] += 1;
+      console.log("llega gano");
+
+    }
+    else
+    { 
+    
+        this.user.puntajes[13]['memotestP'] += 1;
+        console.log("llega perdio");
+        
+
+      
+    }
+
+     this.dataService.updatePuntaje(this.user.uid, this.user.puntajes)
+      .then(() => {
+        this.toast.success("Puntos guardados");
+        this.desGuar=true;
+      })
+      .catch(err => {
+        this.toast.error("Al guardar: " + err.message, "Error");
+      })
+      
+  }
+
+  getCurrentUser() {
+    var uid="0";
+     this.authService.getUserUid().then(res =>{
+       uid = res.toString();
+       this.dataService.getUserByUid(uid)
+          .subscribe(res => {
+            this.user = res;
+          })
+     }).catch(res =>{
+      uid = res.toString();
+      console.log("Sin Usuario");
+     });
+     
+  }
+  ngOnInit() {
+    this.juegoIniciado = false;
+    console.log(this.mostrarGur);
+    this.getCurrentUser();
   }
 
 
