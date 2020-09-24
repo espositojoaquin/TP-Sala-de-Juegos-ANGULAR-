@@ -3,3 +3,13 @@ ul li:hover{
   background-color: #007bff;
   cursor: pointer;
 }
+/*.jumbotron{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+}
+.en-juego{
+  background-color: red;
+}*/
