@@ -86,7 +86,9 @@ export class AuthService {
               {'pptP': 0},
               {'simonP': 0},
               {'tatetiP': 0},
-              {'memotestP':0}
+              {'memotestP':0},
+              {'tatetiE':0},
+              {'pptE':0}
             ]
           })
           resolve(res)

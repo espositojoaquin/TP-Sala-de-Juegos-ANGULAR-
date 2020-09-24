@@ -43,7 +43,10 @@ input[type=email], input[type=password] {
     border-radius: 1rem;
     width: 70%;
     margin-bottom: 2rem;
-    margin-right: 1.5rem;
+    /*justify-content: center;*/
+    align-content: center;
+
+  /*  margin-right: 1.5rem;*/
 
 }
 
@@ -81,6 +84,12 @@ img.avatar {
     flex-wrap: wrap;
     justify-content: center;
 
+}
+.divBoton{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 span.psw {
