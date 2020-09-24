@@ -20,7 +20,8 @@ body{
 /* Header */
 
 header{
-  background-image: url("http://cdn.clubaindependiente.com/fondos/estadio.jpg");
+ /* background-image: url("http://cdn.clubaindependiente.com/fondos/estadio.jpg");*/
+ background-image: url("./estadio.jpg");
   background-repeat: no-repeat;
   background-position: center;
   max-height: 600px;
