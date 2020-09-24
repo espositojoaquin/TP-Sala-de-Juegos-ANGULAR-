@@ -7,19 +7,68 @@
 
 <table class="table table-condensed">
     <thead>
-      <tr>
-        <th>Juego</th>
+      <tr class="bg-primary" style="color: white;">
+        <th>Juegos</th>
         <th>Jugador</th>
-        <th>Resultado</th>
+        <th>Ganadas</th>
+        <th>Perdidas</th>
+        <th>Empatadas</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <tr *ngFor="let juego of listado">
+        <th>Agilidad Aritmetica</th>
         <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
+        <td>{{juego.puntajes[1]['agilidadG']}} </td>
+        <td>{{juego.puntajes[8]['agilidadP']}} </td>
+        <td>-</td>
       </tr>
+      <tr *ngFor="let juego of listado">
+        <th>Adivina el Número </th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[0]['adivinaG']}} </td>
+        <td>{{juego.puntajes[7]['adivinaP']}} </td>
+        <td>-</td>
+      </tr>
+        <tr *ngFor="let juego of listado">
+        <th>Anagrama</th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[2]['anagramaG']}} </td>
+        <td>{{juego.puntajes[9]['anagramaP']}} </td>
+        <td>-</td>
+      </tr>
+      <tr *ngFor="let juego of listado">
+        <th>Piedra Papel o Tijera</th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[3]['pptG']}} </td>
+        <td>{{juego.puntajes[10]['pptP']}} </td>
+        <!-- <td>{{juego.puntajes[15]['pptE']}}  </td> -->
+        <td>-</td>
+
+      </tr>
+      <tr *ngFor="let juego of listado">
+        <th>Simon Dice</th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[4]['simonG']}} </td>
+        <td>{{juego.puntajes[11]['simonP']}} </td>
+        <td>-</td>
+      </tr>
+      <tr *ngFor="let juego of listado">
+        <th>Tateti</th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[5]['tatetiG']}} </td>
+        <td>{{juego.puntajes[12]['tatetiP']}} </td>
+        <!-- <td>{{juego.puntajes[14]['tatetiE']}}</td> -->
+        <td>-</td>
+
+      </tr>
+       <tr *ngFor="let juego of listado">
+        <th>Memotest</th>
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.puntajes[6]['memotestG']}} </td>
+        <td>{{juego.puntajes[13]['memotestP']}} </td>
+        <td>-</td>
+      </tr> 
      
     </tbody>
   </table>
