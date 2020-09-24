@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-content: center;
+}
+h1{
+   
+    color: black;
+    border-radius: 1rem;
+}
+
+.jumbotron{
+    border-radius: 1rem;
+    border-radius: 14px 13px 15px 15px;
+-moz-border-radius: 14px 13px 15px 15px;
+-webkit-border-radius: 14px 13px 15px 15px;
+border: 1px solid #000000;
+font-family: Georgia, 'Times New Roman', Times, serif;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: space-between;
+align-content: center;
+width: 40rem;
+
+-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+margin-bottom: 5rem;
+}
