@@ -1,7 +1,8 @@
 
-<div *ngIf="!juegoIniciado" class="container">
+<div *ngIf="!juegoIniciado" class="container ld ld-zoom-in">
   <h3>Elija un Nivel de Dificultad</h3>
-  <select  [(ngModel)]="nivelSeleccionado" class="browser-default custom-select" style="border-radius: 2rem;">
+
+  <select  [(ngModel)]="nivelSeleccionado" class="browser-default custom-select" >
 
     <option  *ngFor="let nivel of niveles">{{nivel.nombre}}</option>
   </select>

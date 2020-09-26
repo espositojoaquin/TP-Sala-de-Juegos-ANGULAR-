@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron ld ld-vortex-alt-in">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
       <div *ngIf="!enJuego">
@@ -7,7 +7,7 @@
                   Nuevo juego</button></p>
       </div>
       <br>
-      <div *ngIf="enJuego">
+      <div *ngIf="enJuego" class="ld ld-zoom-in">
           <h2>{{nuevoJuego.operandoUno}} {{nuevoJuego.operador}} {{nuevoJuego.operandoDos}} =
               {{nuevoJuego.numeroIngresado}}</h2>
           <label for="input-numero-ingresado">Ingrese su respuesta: </label>
@@ -23,7 +23,7 @@
                   </i> Te quedan <span style="font-weight: bold">{{tiempo}}</span> segundos</p>
           </div>
       </div>
-      <div [hidden]="btnGuardar">
+      <div [hidden]="btnGuardar" class="ld ld-zoom-in">
           <h3 *ngIf="!nuevoJuego.gano">Le Erraste!</h3>
           <h3 *ngIf="nuevoJuego.gano">Acertaste!</h3>
           <button [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar

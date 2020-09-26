@@ -23,6 +23,7 @@ export class TatetiComponent implements OnInit {
   empate:boolean = false;
   desGuar:boolean = false;
 
+
   constructor(private toastr: ToastrService, private authService: AuthService,
     private dataService: DataService) {
     this.nuevoJuego = new JuegoTateti();

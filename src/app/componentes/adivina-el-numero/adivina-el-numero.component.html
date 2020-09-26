@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron ld ld-power-on">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <div class="numSecreto"  *ngIf="nuevoJuego.numeroSecreto==0">
           <label for="input-numero-ingresado">Generá un número: </label>
           <p><button (click)="generarNumeroUsr()" class="btn btn-primary btn-lg"  type="button" id="button-nuevo">Nuevo
                   número secreto</button></p>
       </div>
-      <div  *ngIf="nuevoJuego.numeroSecreto!=0">
+      <div class="ld ld-float-ttb-in" *ngIf="nuevoJuego.numeroSecreto!=0">
           <label class="labelIngresar" for="input-numero-ingresado">Ingrese un número: </label>
           <div  class="input-group mb-4">
-              <input id="input-numero-ingresado" [(ngModel)]="nuevoJuego.numeroIngresado" type="number"
+              <input style="border-radius: 2rem;" id="input-numero-ingresado" [(ngModel)]="nuevoJuego.numeroIngresado" type="number"
                   class="form-control" placeholder="Ingrese un número:" aria-label="Ingrese un número:"
                   aria-describedby="button-addon2">
           </div>

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from "@angular/material/select";
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -136,6 +137,7 @@ import { firebaseConfig } from "../environments/environment";
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    MatSelectModule 
 
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

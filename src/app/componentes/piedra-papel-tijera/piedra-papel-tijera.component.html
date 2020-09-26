@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron ld ld-zoom-in">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
       <div class="label-jugadores row">
@@ -35,7 +35,7 @@
 
           </div>
           </div>
-             <div class="row" style="justify-content: space-between;" *ngIf="enJuego">
+             <div class="row ld ld-rush-rtl-in" style="justify-content: space-between;" *ngIf="enJuego">
                 <div class="col-4">
                     <img (click)="detener(1)" class="imagen-elegir-jugada" src="../../../assets/imagenes/piedra.png"
                      alt="piedra">
