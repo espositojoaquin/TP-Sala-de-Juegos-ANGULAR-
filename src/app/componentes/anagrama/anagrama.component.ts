@@ -17,6 +17,7 @@ export class AnagramaComponent implements OnInit {
   user: any;
   save: boolean = false;
   desGuar:boolean = false;
+  respuesta="red";
 
   constructor(private toastr: ToastrService, private authService: AuthService,
     private dataService: DataService) {
@@ -45,9 +46,11 @@ export class AnagramaComponent implements OnInit {
   mostrarMensaje() {
 
     if (this.nuevoJuego.gano) {
+      this.respuesta="green";
       this.toastr.success("Lo lograste", "Bravo!");
       //this.save = true;
     } else {
+      this.respuesta="rgb(211, 13, 13)";
         this.toastr.error(this.nuevoJuego.palabraIngresada + ", no es anagrama de " + this.nuevoJuego.palabraSeleccionada,
         "Seguí participando");
       //  this.save = false;

@@ -2,15 +2,74 @@ ul li:hover{
   color: #ffffff;
   background-color: #007bff;
   cursor: pointer;
+  -webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
 }
-/*.jumbotron{
+ul li{
+  border: 1px solid #000000;
+  border-radius: 2rem;
+}
+ .jumbotron{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  border-radius: 2rem;
   align-content: center;
   justify-content: space-between;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: white;
+  
+  
+}
+h1{
+  background-color:  #007bff ;
+  border-radius: 2rem;
+  color: white;
 }
 .en-juego{
-  background-color: red;
-  width: 20rem;
-}*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 2rem;
+  align-content: center;
+  justify-content: space-between;
+  background-color:white;
+  width: 70%;
+  padding: 2rem;
+
+  -webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+}
+.anagrama{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+   background-color: white;
+   padding: 1rem;
+   border-radius: 2rem;
+
+   -webkit-box-shadow: 10px 10px 23px -5px rgba(10,145,194,1);
+-moz-box-shadow: 10px 10px 23px -5px rgba(10,145,194,1);
+box-shadow: 10px 10px 23px -5px rgba(10,145,194,1);
+
+}
+.respuesta{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+   padding: 1rem;
+   height: 20%;
+   border-radius: 2rem;
+   -webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+}

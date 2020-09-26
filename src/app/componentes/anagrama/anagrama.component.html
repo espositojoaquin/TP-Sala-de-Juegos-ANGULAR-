@@ -1,13 +1,13 @@
 <div class="container">
   <div class="jumbotron">
-      <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
+      <h1  class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
       <div class="en-juego">
           <div class="container tablero">
               <div class="row" *ngIf="!enJuego">
                   <p>Seleccione una palabra..</p>
               </div>
-              <div class="row">
+              <div class="row" style="display: flex; flex-direction: row; justify-content: space-between;" >
                   <div class="col-sm-12 col-md-4">
                       <ul class="list-group">
                           <li (click)="palabraSeleccionada(key)" class="list-group-item flex-fill"
@@ -15,37 +15,43 @@
                               {{key}}</li>
                       </ul>
                   </div>
-                  <div class="col-sm-12 col-md-4" *ngIf="nuevoJuego.palabraSeleccionada!=''">
-                      <div class="row">
-                          <h2>{{nuevoJuego.palabraSeleccionada}}</h2>
-                      </div>
-                      <div class="row">
-                          <div class="input-group mb-3">
-                              <div class="input-group-append">
+                  <div  *ngIf="nuevoJuego.palabraSeleccionada!=''">
+                      <div class="anagrama ld ld-blur-in">
+                         
+                          
+                          <div >
+                            <h2>{{nuevoJuego.palabraSeleccionada}}</h2>
+                              <!-- <div style="margin-bottom: 1rem;" >
                                   <span><i class="fa fa-spinner fa-spin"></i></span>
-                              </div>
+                              </div> -->
                               <input id="input-ingresado" [(ngModel)]="nuevoJuego.palabraIngresada" type="text"
-                                  class="form-control" placeholder="Ingrese un anagrama:"
+                                  class="form-control" style="border-radius: 2rem;" placeholder="Ingrese un anagrama:"
                                   aria-label="Ingrese un anagrama:" aria-describedby="button-addon2">
-                              <div [hidden]="ocultarVerificar" class="input-group-append">
+                              <div [hidden]="ocultarVerificar" style="margin-top: 2rem;" >
                                   <button class="btn btn-success" type="button" id="button-verificar"
                                       (click)="verificarUsr()">Verificar</button>
                               </div>
                           </div>
-                      </div>
+                        </div>
+                    </div>
+                    <div class="respuesta ld ld-bounce-in" [ngStyle]="{'background-color': respuesta}" *ngIf="save">
+       
+                      <h3 *ngIf="nuevoJuego.gano">Acertaste!</h3>
+                      <h3 *ngIf="!nuevoJuego.gano">Le erraste!</h3>
+                      <button style="margin: 3rem;" [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+                          partida</button>
                   </div>
-              </div>
-              <div class="row">
-              </div>
-          </div>
+                </div>
+                
+            </div>
       </div>
-      <div *ngIf="save">
+      <!-- <div *ngIf="save">
          
           <h3 *ngIf="nuevoJuego.gano">Acertaste!</h3>
           <h3 *ngIf="!nuevoJuego.gano">Le erraste!</h3>
           <button [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
               partida</button>
-      </div>
+      </div> -->
       <!-- <div class="row" *ngIf="!enJuego">
       <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">
               Nuevo juego</button></p>
