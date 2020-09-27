@@ -21,7 +21,8 @@ body{
   padding: 0%;
 }
 .container{
-
+    
+    font-family: "Open Sans";
     width: 100%;
     height: 40rem;
     background-color:transparent;

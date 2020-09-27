@@ -26,3 +26,23 @@
     background: #55ACEE;
     color: white;
 }
+@media screen and (max-width: 800px)
+{
+   table{
+       width: 20rem;
+       height: 20rem;
+   }
+   .container{
+       justify-content: left;
+       width: auto;
+       height: auto;
+   }
+}
+@media screen and (max-width: 430px)
+{
+   table{
+       width: 10rem;
+       height: 10rem;
+   }
+   
+}

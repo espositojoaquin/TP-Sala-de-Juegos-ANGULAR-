@@ -22,6 +22,7 @@ export class TatetiComponent implements OnInit {
   contadorPerdidas: number = 0;
   empate:boolean = false;
   desGuar:boolean = false;
+  claseTateti = "row tablero ld ld-slide-ttb-in";
 
 
   constructor(private toastr: ToastrService, private authService: AuthService,
@@ -54,9 +55,10 @@ export class TatetiComponent implements OnInit {
                     this.toastr.error("Perdedor..", "Mejor suerte la próxima");
                     this.contadorPerdidas++;
                     setTimeout(() => {
+                      this.claseTateti = "row tablero ld ld-slide-ttb-out infinite"
                       this.enJuego = false;
 
-                    }, 500);
+                    }, 1000);
 
                   }
                 }
@@ -77,10 +79,10 @@ export class TatetiComponent implements OnInit {
                     this.nuevoJuego.gano = true;
                     setTimeout(() => {
                       this.enJuego = false;
-
-
-                    }, 500);
-
+                      this.claseTateti = "row tablero ld ld-slide-ttb-out" 
+                      
+                    }, 1000);
+                    
 
                 }
           }
@@ -90,16 +92,18 @@ export class TatetiComponent implements OnInit {
       {
         this.toastr.warning("Empate", "Estuvo parejo");
         setTimeout(() => {
+          this.claseTateti = "row tablero ld ld-slide-ttb-out infinite"
           this.enJuego = false;
           this.nuevoJuego.juegoTerminado=true;
           this.empate=true;
 
-        }, 500);
+        }, 1000);
 
       }
   }
 
   nuevo() {
+    this.claseTateti = "row tablero ld ld-slide-ttb-in";
     this.empate = false;
     this.desGuar = false;
     this.save = false;

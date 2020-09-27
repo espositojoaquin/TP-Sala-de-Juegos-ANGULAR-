@@ -7,24 +7,27 @@
 
 <app-menu></app-menu>
 
-<table class="table table-condensed">
-  <thead>
-    <tr class="bg-primary" style="color: white;">
-      <th>Usuario</th>
-      <th>Perfil</th>
-      <th>Cuit/Cuil</th>
-      <th>Sexo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let jugador of listado" >
-      <td>{{jugador.nombre}} </td>
-      <td>{{jugador.perfil}}</td>
-      <td>{{jugador.cuil}} </td> 
-      <td>{{jugador.sexo }} </td> 
+<div class="container">
+  <table class="table table-condensed ld ld-rush-ltr-in">
+    <thead>
+      <tr class="bg-primary" style="color: white;">
+        <th>Usuario</th>
+        <th>Perfil</th>
+        <th>Cuit/Cuil</th>
+        <th>Sexo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jugador of listado" >
+        <td>{{jugador.nombre}} </td>
+        <td>{{jugador.perfil}}</td>
+        <td>{{jugador.cuil}} </td> 
+        <td>{{jugador.sexo }} </td> 
+  
+        
+      </tr>
+     
+    </tbody>
+  </table>
 
-      
-    </tr>
-   
-  </tbody>
-</table>
+</div>

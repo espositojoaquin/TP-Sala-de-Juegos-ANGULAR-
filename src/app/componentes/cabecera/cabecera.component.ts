@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../../servicios/auth.service";
 
 @Component({
   selector: 'app-cabecera',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService ) {}
 
   ngOnInit() {
+  }
+  logOut(){
+   
+    this.auth.logout();
   }
 
 }

@@ -10,7 +10,7 @@ body{
   font-size: 16px;
 }
 .contenedor{
-
+  font-family: "Open Sans";
   width: 90%;
   max-width: 1000px;
   margin: auto;

@@ -20,6 +20,8 @@ header{
     max-width: 1000px;
     margin: auto;
     overflow: hidden;
+  font-family: "Open Sans";
+
 }
 .menu{
   margin: 2rem 0rem;
