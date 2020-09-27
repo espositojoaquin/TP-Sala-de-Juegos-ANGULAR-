@@ -18,6 +18,7 @@ export class QuienSoyComponent implements OnInit {
         
         if(user != 0 && user!=undefined)
         { 
+          console.log(user);
           this.link = "/Principal";
           
         }

@@ -12,9 +12,9 @@
 table{
     margin-top: 5rem;
     border-radius: 2rem;
-    -webkit-box-shadow: 12px 13px 15px -7px rgba(0,0,0,0.75);
--moz-box-shadow: 12px 13px 15px -7px rgba(0,0,0,0.75);
-box-shadow: 12px 13px 15px -7px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -2px 7px 47px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 7px 47px -10px rgba(0,0,0,0.75);
+    box-shadow: -2px 7px 47px -10px rgba(0,0,0,0.75);
 }
 @media screen and (max-width: 800px)
 {

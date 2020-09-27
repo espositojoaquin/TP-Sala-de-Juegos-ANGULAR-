@@ -12,17 +12,21 @@
     <button  class="btn-danger btn-lg"  routerLink="/Login" style="width:auto;">No acepto</button>
 
   </div>
-  <div id="id01" class="modal">
+
+  <div id="id01" class="modal ld ld-zoom-in">
     <form class="modal-content animate" >
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
       <div style="margin-top: 3rem;" class="container">
+        <div class="imgcontainer">
+          <img src="./assets/imagenes/email.jpg" alt="Avatar" class="avatar" >
+        </div>
         <label><b>User</b></label>
         <input class="form-control" type="text" [(ngModel)]="user" [ngModelOptions]="{standalone: true }"  placeholder="Ingresa tu nombre de usuario" name="user" required>
         <label><b>Cuil</b></label>
         <input class="form-control" type="number" [(ngModel)]="cuil" [ngModelOptions]="{standalone: true}" placeholder="Ingresa tu Cuit/Cuil" name="email" required>
         <label><b>Sexo</b></label>
         <select style="border-radius: 1rem; margin-bottom: 2rem;" [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}" class="browser-default custom-select">
-          <option value="Femenino">Femenino</option>
+          <option selected value="Femenino">Femenino</option>
           <option value="Masculino">Masculino</option>
         </select>
         <label><b>Email</b></label>
@@ -37,11 +41,14 @@
         <p>creando la cuenta aceptando los<a  onclick="document.getElementById('id01').style.display='none'"  >Terminos y condiciones</a>.</p> -->
 
         <div class="clearfix row" style="justify-content: center;">
-          <button (click)="registro()" style="width: 25rem;" type="submit" class="btn-success btn-lg " onclick="this.blur();">Registrarme</button>
+          <button (click)="registro()" style="width: 25rem;" type="submit" class="btn-success btn-lg boton " onclick="this.blur();">Registrarme</button>
         </div>
       </div>
     </form>
   </div>
+  
+
+  
 
   <script>
   // Get the modal
