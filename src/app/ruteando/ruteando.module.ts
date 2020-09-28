@@ -26,22 +26,24 @@ import { PiedraPapelTijeraComponent } from "../componentes/piedra-papel-tijera/p
 import { TatetiComponent } from "../componentes/tateti/tateti.component";
 import { MemoTestComponent } from "../componentes/memo-test/memo-test.component";
 import { SimonComponent } from "../componentes/simon/simon.component";
+import {AuthGuard } from "../guards/auth.guard";
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: 'Jugadores' , component: JugadoresListadoComponent},
+{path: 'Jugadores' , component: JugadoresListadoComponent,canActivate: [AuthGuard]},
 {path: '' , component: LoginComponent},
 {path: 'Login' , component: LoginComponent},
 {path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
+{path: 'Principal' , component: PrincipalComponent,canActivate: [AuthGuard]},
+{path: 'Listado' , component: ListadoComponent,canActivate: [AuthGuard]},
 {path: 'Paises' , component: ListadoDePaisesComponent},
 
 { path: 'Juegos' ,
 component: JuegosComponent ,
+canActivate: [AuthGuard],
 children:
 [{path: '' , component: MenuCardComponent},
        {path: 'Anagrama' , component: AnagramaComponent},
@@ -54,8 +56,15 @@ children:
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
 },
+/*{
+path: 'Principal' , 
+component: PrincipalComponent,
+canActivate: [AuthGuard]
+},*/
 {path: '**' , component: ErrorComponent},
+
 {path: 'error' , component: ErrorComponent}];
+
 
 @NgModule({
   imports: [
