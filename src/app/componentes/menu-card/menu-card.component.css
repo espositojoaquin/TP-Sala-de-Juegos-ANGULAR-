@@ -8,6 +8,7 @@
   flex-wrap: wrap; /* hace que se pongan de bajo si no entra*/
   justify-content: space-between; /* para que tengan espacio entre ellas*/
   align-content: center;
+ 
 }
 .imagenDeMenu{
   height: 55%;

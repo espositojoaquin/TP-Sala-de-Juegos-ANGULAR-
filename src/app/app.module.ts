@@ -3,9 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+//material
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from "@angular/material/select";
+
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -145,4 +147,4 @@ import { firebaseConfig } from "../environments/environment";
   providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,TarjetaService,TableroService,AuthService,DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { BrowserAnimationsModule}

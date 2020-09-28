@@ -12,6 +12,7 @@ h1{
   box-shadow: -4px 6px 23px -1px rgba(36,35,36,1);
 
 }
+
 @media screen and (max-width: 520px)
  {
      h1{

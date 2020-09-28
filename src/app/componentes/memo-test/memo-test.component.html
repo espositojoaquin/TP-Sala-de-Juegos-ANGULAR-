@@ -1,11 +1,12 @@
 
 <div *ngIf="!juegoIniciado" class="container ld ld-zoom-in">
-  <h3>Elija un Nivel de Dificultad</h3>
+  <h3 >Elija un Nivel de Dificultad</h3>
 
   <select  [(ngModel)]="nivelSeleccionado" class="browser-default custom-select" >
 
     <option  *ngFor="let nivel of niveles">{{nivel.nombre}}</option>
   </select>
+  
 
     <div class="botones">
       <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="iniciar()" [disabled]="(juegoIniciado || !nivelSeleccionado)">Comenzar</button>
