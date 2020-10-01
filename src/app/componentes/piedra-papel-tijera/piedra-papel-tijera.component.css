@@ -14,12 +14,14 @@
   padding: 0;
 }
 h1{
-  background-color: rgb(67, 141, 252);
   border-radius: 1rem;
   color: white;
+  font-size: 5rem;
   font-family: serif;
   font-weight: lighter;
   align-content: center;
+  text-align: center;
+  color: black;
 
 }
 .botones{
@@ -27,6 +29,8 @@ h1{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
+ 
 }
 .imagen-elegir-jugada{
   width: 50%;
@@ -44,6 +48,7 @@ box-shadow: 10px 7px 27px -3px rgba(201,8,18,1);
   padding: 1rem 2rem 1rem 2rem;
   display: flex;
   height: auto;
+  margin-bottom: 3rem;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
@@ -55,8 +60,8 @@ box-shadow: 10px 10px 19px -3px rgba(0,0,0,0.75);
 }
 .nuevoBoton{
   margin: 5rem;
-
-
+  width: 15rem;
+  font-size: 1.5rem;
 }
 
 .label-jugadores{
