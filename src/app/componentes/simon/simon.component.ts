@@ -23,6 +23,7 @@ export class SimonComponent implements OnInit {
   contador: number = 0;
   user: any;
   save: boolean = false;
+ 
   
 
   btnVerde: any = document.getElementById("btn-verde");
@@ -72,6 +73,7 @@ export class SimonComponent implements OnInit {
   }
 
   mostrarSecuencia() {
+
     console.log(this.nuevoJuego.secuencia);
     this.repetidor = setInterval(() => {
 
@@ -101,6 +103,9 @@ export class SimonComponent implements OnInit {
       }
 
     }, 1000);
+
+  
+
   }
 
   playSound(number: number) {
@@ -195,11 +200,11 @@ export class SimonComponent implements OnInit {
   }
   finalizar(){
     
+    this.deshabilitarBotones(true);
     this.toastr.error("Tan Rápido te rendís", "Me desepcionás");
     this.enJuego = false;
     this.indice = -1;
     this.indiceUsr = -1;
-    this.deshabilitarBotones(true);
     this.registrarSecuencia = false;
 
   }

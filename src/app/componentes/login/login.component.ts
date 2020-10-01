@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { ToastrService } from 'ngx-toastr';
 import { AuthService  } from "../../servicios/auth.service";
+
 
 @Component({
   selector: 'app-login',
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   invitado(){

@@ -3,8 +3,8 @@
         <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
         <br>
         <!-- <div class="en-juego" *ngIf="enJuego"> -->
-        <div class="en-juego">
-            <div style="margin-bottom: 2rem;" *ngIf="contador!=0">Aciertos: {{contador}}</div>
+        <div class="en-juego" style="margin-bottom: 3rem;">
+            <div style="height: 3rem; margin-bottom: 3rem;"> <p style="font-size: 2rem;" class="ld ld-slide-ltr-in" *ngIf="contador!=0">Aciertos: {{contador}}</p></div>
             <div class="container tablero">
                 <div class="row ld ld-vortex-alt-in" style="display: flex; flex-direction: row; justify-content: center;">
                     <div class="div-boton-juego ">
@@ -28,9 +28,9 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="registrarSecuencia" class="label-jugadores row">
-                <label class="col-12">
-                    <p>Repita la secuencia..</p>
+            <div  class="label-jugadores row" style="margin-top: 2rem;" >
+                <label  class="col-12" style="height: 3rem;">
+                    <p style="font-size: 2rem;" class="ld ld-jump-in" *ngIf="registrarSecuencia" >Repita la secuencia..</p>
                     <!-- <p><i class="fa fa-spinner fa-spin">
                         </i> Tiempo: <b>{{contador}}</b></p> -->
                 </label>
@@ -45,7 +45,7 @@
                 partida</button>
         </div>
         <div style="justify-content: center; margin-top: 2rem;" class="row" *ngIf="enJuego">
-            <p><button (click)="finalizar()" class="btn btn-danger btn-lg" type="button" id="button-fin">
+            <p><button [disabled]="!registrarSecuencia" (click)="finalizar()" class="btn btn-danger btn-lg" type="button" id="button-fin">
                     Finalizar</button></p>
         </div>
     </div>
