@@ -42,9 +42,9 @@ h1{
 }
 .botones{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:center;
 }
 
 .tablero{
@@ -70,4 +70,15 @@ td {
 
 .borde-right{
   border-right: 20px solid #454d55;
+}
+button{
+  width: 35rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 810px)
+{
+ button{
+     width: auto;
+ }
 }

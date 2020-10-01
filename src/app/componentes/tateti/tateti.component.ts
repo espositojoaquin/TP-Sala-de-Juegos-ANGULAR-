@@ -34,7 +34,7 @@ export class TatetiComponent implements OnInit {
     let row = Math.floor(Math.random() * 3);
     let col = Math.floor(Math.random() * 3);
     this.marcarJugada(row, col, true);
-    this.save = true;
+   // this.save = true;
   }
 
 
@@ -55,6 +55,7 @@ export class TatetiComponent implements OnInit {
                     this.toastr.error("Perdedor..", "Mejor suerte la próxima");
                     this.contadorPerdidas++;
                     setTimeout(() => {
+                      this.save=true;
                       this.claseTateti = "row tablero ld ld-slide-ttb-out infinite"
                       this.enJuego = false;
 
@@ -78,6 +79,7 @@ export class TatetiComponent implements OnInit {
                     this.contadorGanadas++;
                     this.nuevoJuego.gano = true;
                     setTimeout(() => {
+                      this.save=true;
                       this.enJuego = false;
                       this.claseTateti = "row tablero ld ld-slide-ttb-out" 
                       
@@ -92,10 +94,12 @@ export class TatetiComponent implements OnInit {
       {
         this.toastr.warning("Empate", "Estuvo parejo");
         setTimeout(() => {
+          this.save=true;
           this.claseTateti = "row tablero ld ld-slide-ttb-out infinite"
           this.enJuego = false;
           this.nuevoJuego.juegoTerminado=true;
           this.empate=true;
+
 
         }, 1000);
 

@@ -54,3 +54,20 @@ h3{
      height: auto;
    }
 }
+h3{
+  font-size: 2rem;
+}
+button{
+  width: 35rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 810px)
+{
+ button{
+     width: auto;
+ }
+ h3{
+   font-size: auto;
+ }
+}

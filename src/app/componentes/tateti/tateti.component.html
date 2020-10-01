@@ -2,10 +2,10 @@
   <div class="jumbotron ld ld-fall-rtl-in">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
-      <div class="label-jugadores row" >
-          <label id="jugador" *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
+      <div class="label-jugadores row" style="height: 10rem;" >
+          <label id="jugador" *ngIf="user" class="col-6 ld ld-slide-ltr-in"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
           <!-- <label id="jugador" class="col-6"><b>Jugador: {{contadorGanadas}}</b></label> -->
-          <label id="oponente" *ngIf="user" class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
+          <label id="oponente" *ngIf="user" class="col-6 ld ld-slide-ltr-in"><b>Oponente: {{contadorPerdidas}}</b></label>
         </div>
                           <div style="height: 3rem;">
                             <div *ngIf="turnoJugador && !nuevoJuego.juegoTerminado" class="row">
@@ -54,18 +54,18 @@
               </tbody>
           </table>
       </div>
-    </div>
-    <div class="botones">
-
-      <div class="row" *ngIf="nuevoJuego.juegoTerminado">
-          <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">
-                  Nuevo juego</button></p>
+      <div class="botones">
+  
+        <div style="justify-content: center;" class="row" *ngIf="nuevoJuego.juegoTerminado">
+            <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">
+                    Nuevo juego</button></p>
+        </div>
+        <div style="justify-content: center;" class="row" *ngIf="save">
+            <button style="margin-bottom: 3rem;" [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+                partida</button>
+        </div>
+  
       </div>
-      <div *ngIf="save">
-          <button [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
-              partida</button>
-      </div>
-
     </div>
 </div>
 
