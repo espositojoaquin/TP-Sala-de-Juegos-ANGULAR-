@@ -2,10 +2,10 @@
   <div class="jumbotron ld ld-zoom-in">
       <h1 class="display-4">{{nuevoJuego.nombre}}</h1>
       <br>
-      <div class="label-jugadores row">
-          <label *ngIf="user" class="col-6"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
+      <div class="label-jugadores row" style="height: 3rem;">
+          <label style="font-size: 1.5rem;" *ngIf="user" class="col-6 ld ld-rush-ttb-in"><b>{{user.nombre | titlecase}}: {{contadorGanadas}}</b></label>
           <!-- <label class="col-6"><b> Jugador: {{contadorGanadas}}</b></label> -->
-          <label *ngIf="user" class="col-6"><b>Oponente: {{contadorPerdidas}}</b></label>
+          <label style="font-size: 1.5rem;" *ngIf="user" class="col-6 ld ld-rush-ttb-in"><b>Oponente: {{contadorPerdidas}}</b></label>
       </div>
       <div class="row">
         <div class="col-6">
@@ -14,9 +14,12 @@
           </div>
 
         </div>
-          <div class="col-6">
+          <div class="col-6" >
               <img class="imagen-jugada" src={{imagenJugada}} alt="">
           </div>
+      </div>
+      <div *ngIf="enJuego" style="height: 3rem;">
+
       </div>
       <br>
       <div class="en-juego" *ngIf="enJuego">
@@ -30,7 +33,7 @@
         <div class="row botones"  *ngIf="!enJuego">
           <button (click)="nuevo()"   class="btn btn-primary btn-lg nuevoBoton" type="button" id="button-nuevo">
             Nuevo juego</button>
-              <button *ngIf="save" [disabled]="desGuar" class="btn btn-success nuevoBoton" type="button" id="button-verificar" (click)="guardar()">Guardar
+              <button *ngIf="save" onclick="this.blur();" [disabled]="desGuar" class="btn btn-success nuevoBoton" type="button" id="button-verificar" (click)="guardar()">Guardar
                 partida</button>
 
           </div>

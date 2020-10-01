@@ -41,10 +41,10 @@
                     Nuevo juego</button></p>
         </div>
         <div *ngIf="save">
-            <button class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+            <button class="btn btn-success" onclick="this.blur();" type="button" id="button-verificar" (click)="guardar()">Guardar
                 partida</button>
         </div>
-        <div style="justify-content: center; margin-top: 2rem;" class="row" *ngIf="enJuego">
+        <div style="justify-content: center; margin-top: 2rem;" onclick="this.blur();" class="row" *ngIf="enJuego">
             <p><button [disabled]="!registrarSecuencia" (click)="finalizar()" class="btn btn-danger btn-lg" type="button" id="button-fin">
                     Finalizar</button></p>
         </div>

@@ -38,7 +38,7 @@
        
                       <h3 *ngIf="nuevoJuego.gano">Acertaste!</h3>
                       <h3 *ngIf="!nuevoJuego.gano">Le erraste!</h3>
-                      <button style="margin: 3rem;" [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+                      <button style="margin: 3rem;" onclick="this.blur();" [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
                           partida</button>
                   </div>
                 </div>

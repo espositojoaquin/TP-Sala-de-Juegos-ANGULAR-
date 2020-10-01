@@ -26,7 +26,7 @@
       <div [hidden]="btnGuardar" class="ld ld-zoom-in">
           <h3 *ngIf="!nuevoJuego.gano">Le Erraste!</h3>
           <h3 *ngIf="nuevoJuego.gano">Acertaste!</h3>
-          <button [disabled]="desGuar" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
+          <button [disabled]="desGuar" onclick="this.blur();" class="btn btn-success" type="button" id="button-verificar" (click)="guardar()">Guardar
               partida</button>
       </div>
   </div>
