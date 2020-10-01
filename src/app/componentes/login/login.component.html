@@ -11,12 +11,13 @@
         <button (click)="invitado2()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Ingresar como Juan</button>
       </div>
       
+      <div *ngIf="spiner"  style="position: absolute; justify-content: center; width:100%;" class="row"><img src="../../../assets/imagenes/spiner.gif" alt=""></div>
       
       <div class="container"> 
        <label ><b>Email</b></label>
-        <input id="email" class="form-control"  type="email" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
+        <input [ngClass]="emailClass"  id="email"   type="email" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
         <label><b>Clave</b></label>
-        <input class="form-control" type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
+        <input [ngClass]="claveClass"   type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
          
         <div class="divBoton">
           <button class="btn-success btn-sm button"  *ngIf="logeando" type="submit" onclick="this.blur();"  (click)="Entrar()" >Ingresar</button>
@@ -34,6 +35,8 @@
       </div>
 
     </form>
+
+    
 
     
   </div>

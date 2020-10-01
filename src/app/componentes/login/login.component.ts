@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService  } from "../../servicios/auth.service";
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +20,9 @@ export class LoginComponent implements OnInit {
   progresoMensaje="esperando...";
   logeando=true;
   ProgresoDeAncho:string;
+  spiner:boolean = false;
+  emailClass = "form-control";
+  claveClass = "form-control";
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
@@ -47,13 +51,32 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
+   
+    this.spiner=true
+    this.emailClass="form-control";
+    this.claveClass="form-control";
+
+    if(this.email.length<4)
+    {
+      this.emailClass="form-control error";
+
+    }
+    if(this.clave.length<4)
+    {
+      this.claveClass="form-control error";
+
+    }
+    
     this.auth.login(this.email, this.clave)
       .then(res => {
+        this.spiner=false;
         this.router.navigate(['/Principal']);
       })
       .catch(error => {
-        this.logeando =true;
+       
         this.toast.error("Los datos son incorrectos o no existe el usuario");
+        this.spiner=false;
+        this.logeando =true;
        
       })
   }

@@ -96,6 +96,9 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
+.error{
+    border:1px solid rgb(214, 9, 9);
+}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 900px) {
