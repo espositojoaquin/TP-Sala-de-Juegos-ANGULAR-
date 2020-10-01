@@ -193,6 +193,16 @@ export class SimonComponent implements OnInit {
     this.deshabilitarBotones(true);
     this.registrarSecuencia = false;
   }
+  finalizar(){
+    
+    this.toastr.error("Tan Rápido te rendís", "Me desepcionás");
+    this.enJuego = false;
+    this.indice = -1;
+    this.indiceUsr = -1;
+    this.deshabilitarBotones(true);
+    this.registrarSecuencia = false;
+
+  }
 
   guardar(){
     

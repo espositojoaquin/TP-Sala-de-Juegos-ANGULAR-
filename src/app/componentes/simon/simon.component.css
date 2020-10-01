@@ -103,3 +103,7 @@ box-shadow: 13px 0px 25px -5px rgba(230,23,40,1);
 box-shadow: 13px 8px 25px -5px rgba(23,157,230,1);
 
 }
+button{
+    width: 35rem;
+    font-size: 2rem;
+}
